@@ -69,7 +69,7 @@ class GameScene extends Phaser.Scene {
             runChildUpdate: true
         });
 
-        this.spawnRate = 3000;
+        this.spawnRate = 2000;
 
         this.spawnTimer = this.time.addEvent({
             delay: this.spawnRate,
@@ -105,9 +105,6 @@ class GameScene extends Phaser.Scene {
             callback: () => {
                 this.timeSurvived += 1;
                 this.timeText.setText('Time: ' + this.timeSurvived + 's');
-                if (this.timeSurvived >= 120) {
-                    this.winGame();
-                }
             },
             callbackScope: this,
             loop: true
@@ -256,8 +253,9 @@ class GameScene extends Phaser.Scene {
 
     adjustSpawnRate() {
         let newSpawnRate = 3000 - Math.floor(this.score / 100) * 500;
-        if (newSpawnRate < 2000) newSpawnRate = 2000;
 
+        if (newSpawnRate < 500) newSpawnRate = 500;  
+    
         if (this.spawnTimer.delay !== newSpawnRate) {
             this.spawnTimer.remove(false);
             this.spawnTimer = this.time.addEvent({
