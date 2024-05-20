@@ -42,7 +42,6 @@ class GameOverScene extends Phaser.Scene {
             strokeThickness: 6        
         }).setOrigin(0.5);
 
-        // Display score
         this.add.text(200, 300, 'Score: ' + this.score, { 
             fontSize: '35px',
             fontFamily: 'Fatpix',
@@ -59,7 +58,6 @@ class GameOverScene extends Phaser.Scene {
             strokeThickness: 6
         }).setOrigin(0.5);
 
-       
         let restartButton = this.add.text(100, 500, 'RETRY', { 
             fontSize: '25px',
             fontFamily: 'Fatpix',
@@ -84,6 +82,18 @@ class GameOverScene extends Phaser.Scene {
         quitButton.setInteractive();
         quitButton.on('pointerdown', () => {
             this.scene.start('MainMenuScene'); 
+        });
+
+        this.addHoverEffect(restartButton);
+        this.addHoverEffect(quitButton);
+    }
+
+    addHoverEffect(button) {
+        button.on('pointerover', () => {
+            button.setScale(1.1); 
+        });
+        button.on('pointerout', () => {
+            button.setScale(1); 
         });
     }
 }
