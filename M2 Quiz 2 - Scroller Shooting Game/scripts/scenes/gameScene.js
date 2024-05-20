@@ -6,7 +6,7 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('background', './assets/sprites/background.png'); // Load the background image
+        this.load.image('background', './assets/sprites/background.png'); 
         this.load.spritesheet('miko', './assets/sprites/miko.png', { frameWidth: 80, frameHeight: 80 });
         this.load.image('projectile', './assets/sprites/orb.png');
         this.load.spritesheet('obstacle', './assets/sprites/cicin.png', { frameWidth: 30, frameHeight: 20 });
@@ -22,7 +22,7 @@ class GameScene extends Phaser.Scene {
     }
 
     create() {
-        // Create a tile sprite for the background
+        
         this.background = this.add.tileSprite(0, 0, 400, 725, 'background').setOrigin(0, 0);
         this.player = this.physics.add.sprite(200, 680, 'miko').setCollideWorldBounds(true).setDepth(1);
 
@@ -38,7 +38,7 @@ class GameScene extends Phaser.Scene {
             enemyProjectile: this.sound.add('enemyProjectile')
         };
 
-        // Player walking animation
+        
         this.anims.create({
             key: 'walk',
             frames: this.anims.generateFrameNumbers('miko', { start: 0, end: 3 }),
@@ -115,8 +115,7 @@ class GameScene extends Phaser.Scene {
     }
 
     update() {
-        // Scroll the background
-        this.background.tilePositionY -= 2; // Adjust the speed as necessary
+        this.background.tilePositionY -= 2; 
 
         if (this.cursors.left.isDown) {
             this.player.setVelocityX(-200);
@@ -162,11 +161,10 @@ class GameScene extends Phaser.Scene {
             projectile.setVisible(true);
             projectile.setVelocityY(-300);
             projectile.setDepth(0);
-            this.sfx.playerProjectile.play(); // Play player projectile sound
+            this.sfx.playerProjectile.play(); 
         }
     }
     
-
     spawnObstacle() {
         let obstacle = this.obstacles.get(Phaser.Math.Between(50, 350), -100, 'obstacle');
         if (obstacle) {
@@ -255,7 +253,6 @@ class GameScene extends Phaser.Scene {
         this.scene.stop('GameScene');
         this.scene.start('GameOverScene', { score: this.score, timeSurvived: this.timeSurvived });
     }
-    
 
     adjustSpawnRate() {
         let newSpawnRate = 3000 - Math.floor(this.score / 100) * 500;

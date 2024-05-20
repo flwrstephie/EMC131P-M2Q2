@@ -3,7 +3,6 @@ import GameOverScene from './scenes/gameOverScene.js';
 import GameScene from './scenes/gameScene.js';
 import MainMenuScene from './scenes/mainMenuScene.js';
 
-
 let bgm;
 
 let config = {
@@ -20,7 +19,6 @@ let config = {
     }
 };
 
-// Initializes the Game
 let game = new Phaser.Game(config);
 game.bgm = bgm;
 

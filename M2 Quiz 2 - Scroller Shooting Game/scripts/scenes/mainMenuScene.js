@@ -60,16 +60,15 @@ class MainMenuScene extends Phaser.Scene {
             strokeThickness: 6
         }).setOrigin(0.5);
 
-        // Add event listeners to buttons
         playButton.setInteractive()
             .on('pointerdown', () => {
                 this.scene.start('GameScene');
             })
             .on('pointerover', () => {
-                playButton.setScale(1.1); // Scale up by 10%
+                playButton.setScale(1.1); 
             })
             .on('pointerout', () => {
-                playButton.setScale(1); // Reset scale
+                playButton.setScale(1); 
             });
 
         creditsButton.setInteractive()
@@ -77,22 +76,22 @@ class MainMenuScene extends Phaser.Scene {
                 this.scene.start('CreditsScene');
             })
             .on('pointerover', () => {
-                creditsButton.setScale(1.1); // Scale up by 10%
+                creditsButton.setScale(1.1); 
             })
             .on('pointerout', () => {
-                creditsButton.setScale(1); // Reset scale
+                creditsButton.setScale(1); 
             });
 
         quitButton.setInteractive()
             .on('pointerdown', () => {
-                // Show an alert when quitting the game
+                
                 alert('Exiting the game.');
             })
             .on('pointerover', () => {
-                quitButton.setScale(1.1); // Scale up by 10%
+                quitButton.setScale(1.1); 
             })
             .on('pointerout', () => {
-                quitButton.setScale(1); // Reset scale
+                quitButton.setScale(1); 
             });
     }
 }

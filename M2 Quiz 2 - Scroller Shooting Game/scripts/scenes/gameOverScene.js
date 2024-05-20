@@ -24,7 +24,7 @@ class GameOverScene extends Phaser.Scene {
         let gameOverAudio = this.sound.add('gameOverAudio');
         gameOverAudio.play();
 
-        this.cameras.main.setBackgroundColor('#ae7674'); // Set background color to black
+        this.cameras.main.setBackgroundColor('#ae7674'); 
 
         this.add.text(200, 100, 'GAME', {
             fontSize: '90px',
@@ -51,7 +51,6 @@ class GameOverScene extends Phaser.Scene {
             strokeThickness: 6
         }).setOrigin(0.5);
 
-        // Display time survived
         this.add.text(200, 350, 'Time Survived: ' + this.timeSurvived + 's', { 
             fontSize: '35px',
             fontFamily: 'Fatpix',
@@ -60,7 +59,7 @@ class GameOverScene extends Phaser.Scene {
             strokeThickness: 6
         }).setOrigin(0.5);
 
-        // Add buttons
+       
         let restartButton = this.add.text(100, 500, 'RETRY', { 
             fontSize: '25px',
             fontFamily: 'Fatpix',
